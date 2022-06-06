@@ -54,9 +54,25 @@ identitas = {} #variabel global, dictionary = json terdiri dari key: value
 class ContohResource(Resource):
     #method get dan post
     def get(self):
-        #response = {"msg": "Halo dunia, ini restfull pertamaku"}
+        #menampilkan data dari database
+        query = ModelDatabase.query.all()
         
-        return identitas
+        #melakukan iterasi pada mdoel database dalam bentuk list
+        output = [
+            {
+                "nama":data.nama, 
+                "umur":data.umur, 
+                "alamat":data.alamat
+            } for data in query
+        ]
+        
+        responseGET = {
+            "code":200,
+            "message":"succes fetched list",
+            "list_user":output
+        }
+        
+        return responseGET, 200
     
     def post(self):
         data_nama = request.form["nama"]
