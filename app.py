@@ -76,7 +76,7 @@ class ContohResource(Resource):
             "code": 200
         }
         
-        return response
+        return response, 200
 
 #setup resource
 api.add_resource(ContohResource, "/api", methods=["GET", "POST"])
