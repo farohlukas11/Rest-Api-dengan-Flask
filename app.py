@@ -29,7 +29,7 @@ class ContohResource(Resource):
         identitas["nama"] = nama
         identitas["umur"] = umur
         
-        response = {"msg":"Data berhasil dimasukkan"}
+        response = {"msg":"Sukses mazseeee"}
         
         return response
 
@@ -38,6 +38,4 @@ api.add_resource(ContohResource, "/api", methods=["GET", "POST"])
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-        
     
